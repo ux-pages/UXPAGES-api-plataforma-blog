@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar e Criar Usuários</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        input[type="text"], input[type="password"], input[type="submit"], button {
+            padding: 10px;
+            margin: 5px;
+            font-size: 16px;
+            width: 100%;
+        }
+        #results {
+            margin-top: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f0f0f0;
+        }
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        /* Adicione ao seu arquivo CSS */
+.toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #333;
+    color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateX(20px);
+    z-index: 1000;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.toast.success {
+    background-color: #28a745; /* Verde para sucesso */
+}
+
+.toast.error {
+    background-color: #dc3545; /* Vermelho para erro */
+}
+
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Buscar Usuários</h1>
+        <form id="searchUserForm">
+            <input type="text" id="searchQuery" placeholder="Digite o email do usuário">
+            <input type="submit" value="Buscar Usuário">
+        </form>
+        
+        <button id="fetchAllButton">Buscar Todos Usuários</button>
+        <div id="results"></div>
+
+        <h1>Criar Novo Usuário</h1>
+        <form id="createUserForm">
+            <input type="text" id="username" placeholder="Nome de Usuário" required>
+            <input type="text" id="email" placeholder="E-mail" required>
+            <input type="password" id="password" placeholder="Senha" required>
+            <input type="password" id="confirmPassword" placeholder="Confirme a Senha" required>
+            <input type="submit" value="Criar Usuário">
+        </form>
+
+        
+    </div>
+
+    <script src="buscar.js"></script>
+    <script src="criar.js"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0; /* Cor de fundo suave */
+}
+
+body {
+    background-image: url(pictures/glowing-blue-sphere-held-by-human-hand-generated-by-ai.jpg);
+    background-size: cover;       /* Cobre toda a tela */
+    background-position: center;  /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Não repete a imagem */
+}
+
+.error-message {
+    color: red;
+    display: none; /* Ocultar por padrão */
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+/* Definições básicas */
+.login-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.2); /* Fundo branco com 20% de opacidade */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    backdrop-filter: blur(10px); /* Efeito de desfoque */
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
