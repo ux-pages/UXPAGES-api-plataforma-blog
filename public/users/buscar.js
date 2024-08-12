@@ -64,28 +64,59 @@ function displayResults(users) {
         return;
     }
 
-    const table = document.createElement('table');
-    table.innerHTML = `
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nome de Usuário</th>
-                <th>Email</th>
-                <th>Criado em</th>
-                <th>Atualizado em</th>
-            </tr>
-        </thead>
-        <tbody>
-            ${users.map(user => `
-                <tr>
-                    <td>${user.id}</td>
-                    <td>${user.username}</td>
-                    <td>${user.email}</td>
-                    <td>${user.createdAt}</td>
-                    <td>${user.updatedAt}</td>
-                </tr>
-            `).join('')}
-        </tbody>
+    const headerRow = `
+        <div class="line">
+            <p class="wid-5">Foto</p>
+            <p class="wid-5">ID</p>
+            <p class="wid-10">Usuários</p>
+            <p class="wid">E-mail</p>
+            <p class="wid">Ações</p>
+        </div>
     `;
-    resultsDiv.appendChild(table);
+    resultsDiv.innerHTML += headerRow;
+
+    users.forEach(user => {
+        const userRow = `
+            <div class="user-information">
+                <div class="id-information-photo wid-5">
+                    <img src="pictures/active-user.png" alt="Foto do Usuário">
+                </div>
+                <div class="id-information wid-5">
+                    <p class="p-user">${user.id}</p>
+                </div>
+                <div class="name-information wid-10">
+                    <p class="p-user">${user.username}</p>
+                </div>
+                <div class="email-information wid">
+                    <p class="p-user">${user.email}</p>
+                </div>
+                <div class="action-user-information wid">
+                    <button class="btn-action"><img src="pictures/editar (1).png" alt="Editar"></button>
+                    <button class="btn-action"><img src="pictures/excluir.png" alt="Excluir"></button>
+                </div>
+            </div>
+        `;
+        resultsDiv.innerHTML += userRow;
+    });
+}
+
+
+function showToast(message, type) {
+    const toast = document.createElement('div');
+    toast.className = `toast ${type}`;
+    toast.innerText = message;
+    document.body.appendChild(toast);
+    
+    // Show toast
+    setTimeout(() => {
+        toast.classList.add('show');
+    }, 100);
+    
+    // Hide toast after 3 seconds
+    setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => {
+            document.body.removeChild(toast);
+        }, 300);
+    }, 3000);
 }

@@ -3,11 +3,15 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const userRoutes = require('./routes/userRoutes');
 const blogRoutes = require('./routes/blogRoutes');
+const categoryRoutes = require('./routes/categoryRoutes');
+const newsletterSubscriberRoutes = require('./routes/newsletterSubscriberRoutes');
 const sequelize = require('./config/database');
 const cors = require('cors');
 
 const app = express();
 app.use(bodyParser.json());
+app.use(express.json()); // Para dados JSON
+app.use(express.urlencoded({ extended: true }));
 
 
 app.use(cors({
@@ -18,9 +22,10 @@ app.use(cors({
 
 
 
-
 app.use('/users', userRoutes);
 app.use('/blogs', blogRoutes);
+app.use('/categories', categoryRoutes);
+app.use('/newsletter', newsletterSubscriberRoutes);
 
 const PORT = process.env.PORT || 3000;
 

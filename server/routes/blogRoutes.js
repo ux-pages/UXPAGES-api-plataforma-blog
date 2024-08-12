@@ -3,7 +3,7 @@ const router = express.Router();
 const blogController = require('../controllers/blogController');
 const authMiddleware = require('../middlewares/authMiddleware');
 
-router.post('/', authMiddleware, blogController.createBlog);
+router.post('/create', blogController.createBlog);
 router.get('/', blogController.getAllBlogs);
 router.get('/:id', blogController.getBlogById);
 router.put('/:id', authMiddleware, blogController.updateBlog);
